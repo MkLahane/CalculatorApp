@@ -105,8 +105,8 @@ function App() {
   };
   return (
     <div className="App">
-      <div ref={usernameDivBackRef} className="username-background"></div>
-      <div ref={usernameDivRef} className="username">
+      <div ref={usernameDivBackRef} className="username-background added"></div>
+      <div ref={usernameDivRef} className="username added">
         <div className="username-div">
           <input ref={usernameInputRef} placeholder="Enter name..." onChange={clampUsername}>
           </input>
@@ -120,28 +120,12 @@ function App() {
         <div className="user" ref={userDivRef}>
           <p>{username}</p>
         </div>
-        {/* <div ref={calculationsDivRef} className="p-calcs-parent">
-          {
-            calculations && calculations.map((c, cindex) =>
-              <div className="p-calcs" key={cindex}>
-                <div>
-                  <div className="p-user"><h3>{c.username}</h3></div>
-
-                  <div className="p-calc"><p>{c.calculation}</p></div>
-                </div>
-              </div>
-
-            )
-          }
-        </div> */}
-
         <div ref={calculationsDivRef} className="p-calcs-parent">
-
           {
             calculations && calculations.map((c, cindex) =>
               <div className="p-calcs" key={cindex}>
-                <span className="p-user"><h3>{c.username}</h3></span>
-                <span className="p-calc"><p>{c.calculation}</p></span>
+                <h3>{c.username}</h3>
+                <p>{c.calculation}</p>
               </div>
             )}
         </div>
