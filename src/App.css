@@ -120,11 +120,6 @@ body {
 }
 
 
-
-
-
-
-
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -140,9 +135,6 @@ body {
     background: #FFFF00;
    
 }
-
-
-
 
 .username-background {
   position: fixed;
