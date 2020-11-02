@@ -5,6 +5,7 @@ body {
   box-sizing: border-box;
   background: #0D0D0A;
 }
+* { min-height: 0 }
 .App {
   min-height: 100vh;
   width: 80%;
@@ -122,77 +123,6 @@ body {
 
 
 
-.show-calculations {
-  width: 50px;
-  height: 50px;
-  position: absolute;
-  /* top: 50%;
-  right: -10%; */
-  margin-left: 20%;
-  background: #0D0D0A;
-  border: none;
-  filter: brightness(0.5);
-}
-
-.show-calculations:hover {
-  filter: brightness(1.5);
-}
-
-
-
-.calculations {
-  width: 300px;
-  max-height: 30vh;
-  min-height: 20vh;
-  margin-right: 20px;
-  transform: skew(0deg) translateX(0px);
-  transform-style: preserve-3d;
-  z-index: 1;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column-reverse;
-  background: #FFFF00;
-  box-shadow: 5px 5px 0px #0D0D0A, 10px 10px 0px white; 
-  -moz-box-shadow: 5px 5px 0px #0D0D0A, 10px 10px 0px white; 
-  -webkit-box-shadow: 5px 5px 0px #0D0D0A, 10px 10px 0px white; 
-  
-
-}
-
-
-.past-calculations {
-  color: black;
-  font-weight: bolder;
-  border: none;
-  background: white;
-  margin-bottom: 5px;
-  font-size: 2rem;
-  padding-left: 20px;
-  display: flex; 
-  flex-direction: column;
-  line-height: 30px;
-  
-}
-
-.past-calculations h3 {
-  color: black;
-  letter-spacing: 5px;
-  font-size: 2rem;
-  text-shadow: 3px 0px 0px white, 5px 0px 0px #FFFF00;
-  line-height: 10px;
-}
-
-
-
-.past-calculations div {
-  background: #FFFF00; 
-  color: black;
-  padding-left: 10px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  word-break: break-all;
-}
-
 
 
 ::-webkit-scrollbar {
@@ -200,7 +130,7 @@ body {
 }
  
 ::-webkit-scrollbar-track {
-    /* -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 0, 1);  */
+    
     background: #0D0D0A;
     border-radius: 20px;
 }
@@ -208,8 +138,11 @@ body {
 ::-webkit-scrollbar-thumb {
     border-radius: 20px;
     background: #FFFF00;
-    /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);  */
+   
 }
+
+
+
 
 .username-background {
   position: fixed;
@@ -237,10 +170,10 @@ body {
   flex-direction: column;
   justify-content: space-around;
 }
-.username div {
+.username-div {
   width: 80%;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
   margin: auto;
 }
 
@@ -252,6 +185,8 @@ body {
 .data {
   display: flex; 
   flex-direction: column;
+  min-height: 0;
+  margin-right: 50px;
 }
 
 .user {
@@ -270,7 +205,8 @@ body {
   transform: translateY(-0px);
 }
 
-.username input {
+
+.username-div input {
   outline: none;
   border: none;
   background: none;
@@ -278,8 +214,9 @@ body {
   font-weight: bolder;
   font-size: 2rem;
   color: #FFFF00;
+  width: 300px;
 }
-.username input:focus {
+.username-div input:focus {
   border-bottom: 2px dashed white;
 }
 
@@ -287,7 +224,7 @@ body {
   color: white;
   font-size: 1rem;
   position: relative;
-  top: -100px;
+  top: -50px;
   left: 60px;
 }
 
@@ -296,6 +233,9 @@ body {
   height: 100px;
   border-radius: 50%;
   background: white;
+  grid-column: span 1;
+  position: relative;
+  left: 0px;
   box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.8), 
               10px 10px 6px rgba(255, 255, 255, 0.5),
               20px 20px 8px rgba(255, 255, 255, 0.2); 
@@ -311,12 +251,13 @@ body {
 
 .icon {
   fill: black;
-  width: 100%;
-  height: 100%;
-  position: relative;
+  width: 100px;
+  height: 100px;
+  
+  /* position: relative;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 .icon-div:hover {
   background: #FFFF00;
@@ -359,3 +300,136 @@ body {
 }
 
 
+
+
+.p-calcs-parent {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  max-height: 300px;
+  width: 300px;
+  flex: 1; 
+  scrollbar-color: #FFFF00;
+  
+}
+
+.p-calcs {
+  color: black;
+  font-weight: bolder;
+  border: none;
+  background: white;
+  min-height: 100px;
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  margin-bottom: 50px;
+  justify-content: center;
+  flex: 1;
+}
+
+
+
+
+.p-user {
+  color: black;
+  letter-spacing: 5px;
+  font-size: 2rem;
+  text-shadow: 3px 0px 0px white, 10px 0px 0px #FFFF00;
+  min-height: 100px;
+  height: auto;
+  padding-left: 10px;
+  flex: 1; 
+}
+
+.p-user h3 {
+  padding-top: 10px;
+}
+
+
+.p-calc {
+  font-size: 1.5rem;
+  min-height: 100px;
+  height: auto;
+  word-break: break-all;
+  padding-left: 10px;
+  
+  flex: 1; 
+}
+
+.p-calc p{
+  background: #FFFF00;
+  padding-left: 5px;
+  position: relative;
+  top: -20px;
+}
+
+
+
+
+
+.calculations {
+  width: 300px;
+  height: 30vh;
+  /* min-height: 0; */
+  
+  margin-right: 20px;
+  transform: skew(0deg) translateX(0px);
+  transform-style: preserve-3d;
+  z-index: 1;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+  background: #FFFF00;
+  box-shadow: 5px 5px 0px #0D0D0A, 10px 10px 0px white; 
+  -moz-box-shadow: 5px 5px 0px #0D0D0A, 10px 10px 0px white; 
+  -webkit-box-shadow: 5px 5px 0px #0D0D0A, 10px 10px 0px white; 
+  scrollbar-color: #FFFF00;
+}
+
+
+.past-calculations {
+  color: black;
+  font-weight: bolder;
+  border: none;
+  background: white;
+  margin-bottom: 5px;
+  font-size: 2rem;
+  /* padding-left: 20px;
+  line-height: 30px;
+  min-height: 50px; */
+  /* min-height: 100px; */
+  background: green;
+  display: flex; 
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.p-username {
+  color: black;
+  letter-spacing: 5px;
+  font-size: 2rem;
+  text-shadow: 3px 0px 0px white, 5px 0px 0px #FFFF00;
+  /* min-height: 50px; */
+  width: 200px;
+  background: red;
+  /* line-height: 0px; */
+}
+
+/* 
+.p-calc {
+  min-width: 20px;
+  min-height: 20px;
+  background: blue;
+  font-size: 1rem;
+} */
+
+
+/* .past-calculations {
+  background: #FFFF00; 
+  color: black;
+  padding-left: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  word-break: break-all;
+} */

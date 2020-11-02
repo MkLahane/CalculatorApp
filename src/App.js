@@ -27,19 +27,21 @@ function App() {
   const calculationsDivRef = useRef(null);
   const calculationsRef = firestore.collection('calculations');
   const query = calculationsRef.orderBy('createdAt', "desc").limit(10);
-  const [calculations] = useCollectionData(query);
+  const [calculationsData] = useCollectionData(query);
+  const [calculations, setCalculations] = useState([]);
   const inputBoxRef = useRef(null);
   const [username, setUsername] = useState("null");
   const usernameDivRef = useRef(null);
   const usernameDivBackRef = useRef(null);
   const userDivRef = useRef(null);
   const usernameInputRef = useRef(null);
-  useEffect(() => {
-    console.log(math.evaluate("sqrt(16)"));
-  }, []);
+
   useEffect(() => {
     calculationsDivRef.current.scrollTop = calculationsDivRef.current.scrollHeight;
-  }, [calculations]);
+    if (calculationsData !== undefined) {
+      setCalculations(calculationsData.reverse());
+    }
+  }, [calculationsData]);
   const computeAnswer = () => {
     let question = inputBoxRef.current.value;
     if (!checkForValidQuestion(question)) {
@@ -105,7 +107,7 @@ function App() {
     <div className="App">
       <div ref={usernameDivBackRef} className="username-background"></div>
       <div ref={usernameDivRef} className="username">
-        <div>
+        <div className="username-div">
           <input ref={usernameInputRef} placeholder="Enter name..." onChange={clampUsername}>
           </input>
           <div className="icon-div" onClick={submitUsername}>
@@ -118,16 +120,32 @@ function App() {
         <div className="user" ref={userDivRef}>
           <p>{username}</p>
         </div>
-        <div ref={calculationsDivRef} className="calculations">
+        {/* <div ref={calculationsDivRef} className="p-calcs-parent">
           {
             calculations && calculations.map((c, cindex) =>
-              <div className="past-calculations" key={cindex}>
-                <h3>{c.username}</h3>
-                <div><p>{c.calculation}</p></div>
+              <div className="p-calcs" key={cindex}>
+                <div>
+                  <div className="p-user"><h3>{c.username}</h3></div>
+
+                  <div className="p-calc"><p>{c.calculation}</p></div>
+                </div>
               </div>
+
             )
           }
+        </div> */}
+
+        <div ref={calculationsDivRef} className="p-calcs-parent">
+
+          {
+            calculations && calculations.map((c, cindex) =>
+              <div className="p-calcs" key={cindex}>
+                <span className="p-user"><h3>{c.username}</h3></span>
+                <span className="p-calc"><p>{c.calculation}</p></span>
+              </div>
+            )}
         </div>
+
       </div>
       <div className="calculator">
         <div className="answer">
