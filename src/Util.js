@@ -38,15 +38,16 @@ const isEmpty = (str) => {
 };
 
 const checkForValidQuestion = (str) => {
-    let isThereANumber = false;
+    let isThereNumber = false;
+    let isThereOperator = false;
     for (let i = 0; i < str.length; i++) {
-        console.log(str[i]);
-
         if (isNumber(str[i])) {
-            isThereANumber = true;
+            isThereNumber = true;
+        } else if (isPuncutation(str[i])) {
+            isThereOperator = true;
         }
     }
-    return isThereANumber;
+    return isThereNumber && isThereOperator;
 };
 
 export {
