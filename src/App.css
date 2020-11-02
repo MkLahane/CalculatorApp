@@ -253,11 +253,7 @@ body {
   fill: black;
   width: 100px;
   height: 100px;
-  
-  /* position: relative;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); */
+
 }
 .icon-div:hover {
   background: #FFFF00;
@@ -308,9 +304,8 @@ body {
   overflow-y: scroll;
   max-height: 300px;
   width: 300px;
-  flex: 1; 
   scrollbar-color: #FFFF00;
-  
+  overflow-x: hidden;
 }
 
 .p-calcs {
@@ -321,115 +316,40 @@ body {
   min-height: 100px;
   display: flex;
   width: 100%;
-  height: auto;
   flex-direction: column;
-  margin-bottom: 50px;
-  justify-content: center;
-  flex: 1;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  flex-flow: column;
+  padding: 20px;
 }
 
-
-
-
-.p-user {
-  color: black;
-  letter-spacing: 5px;
-  font-size: 2rem;
-  text-shadow: 3px 0px 0px white, 10px 0px 0px #FFFF00;
-  min-height: 100px;
-  height: auto;
-  padding-left: 10px;
-  flex: 1; 
-}
-
-.p-user h3 {
-  padding-top: 10px;
-}
-
-
-.p-calc {
-  font-size: 1.5rem;
-  min-height: 100px;
-  height: auto;
-  word-break: break-all;
-  padding-left: 10px;
-  
-  flex: 1; 
-}
-
-.p-calc p{
-  background: #FFFF00;
-  padding-left: 5px;
-  position: relative;
-  top: -20px;
-}
-
-
-
-
-
-.calculations {
-  width: 300px;
-  height: 30vh;
-  /* min-height: 0; */
-  
-  margin-right: 20px;
-  transform: skew(0deg) translateX(0px);
-  transform-style: preserve-3d;
-  z-index: 1;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: column-reverse;
-  background: #FFFF00;
-  box-shadow: 5px 5px 0px #0D0D0A, 10px 10px 0px white; 
-  -moz-box-shadow: 5px 5px 0px #0D0D0A, 10px 10px 0px white; 
-  -webkit-box-shadow: 5px 5px 0px #0D0D0A, 10px 10px 0px white; 
-  scrollbar-color: #FFFF00;
-}
-
-
-.past-calculations {
+.p-calcs h3 {
   color: black;
   font-weight: bolder;
-  border: none;
-  background: white;
-  margin-bottom: 5px;
-  font-size: 2rem;
-  /* padding-left: 20px;
-  line-height: 30px;
-  min-height: 50px; */
-  /* min-height: 100px; */
-  background: green;
-  display: flex; 
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.p-username {
-  color: black;
+  font-size: 2.5rem;
+  text-shadow: 3px 0px 0px #0D0D0A, 5px 0px 0px #FFFF00;
   letter-spacing: 5px;
-  font-size: 2rem;
-  text-shadow: 3px 0px 0px white, 5px 0px 0px #FFFF00;
-  /* min-height: 50px; */
-  width: 200px;
-  background: red;
-  /* line-height: 0px; */
+} 
+
+.p-calcs p {
+  background: #FFFF00;
+  word-break: break-all;
+  height: auto;
+  -webkit-box-decoration-break: clone;
+  min-height: 50px;
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: bolder;
 }
 
-/* 
-.p-calc {
-  min-width: 20px;
-  min-height: 20px;
-  background: blue;
-  font-size: 1rem;
-} */
 
 
-/* .past-calculations {
-  background: #FFFF00; 
-  color: black;
-  padding-left: 10px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  word-break: break-all;
-} */
+
+
+
+
+
+
