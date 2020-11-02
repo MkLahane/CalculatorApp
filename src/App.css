@@ -287,57 +287,36 @@ body {
 }
 
 
-
-
-.p-calcs-parent {
-  display: flex;
-  flex-direction: column;
+.p-calcs {
   overflow-y: scroll;
+  overflow-x: hidden;
   max-height: 300px;
   width: 300px;
-  scrollbar-color: #FFFF00;
-  overflow-x: hidden;
 }
 
-.p-calcs {
-  color: black;
-  font-weight: bolder;
-  border: none;
-  background: white;
-  min-height: 100px;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-  flex-flow: column;
-  padding: 20px;
-}
-
-.p-calcs h3 {
-  color: black;
-  font-weight: bolder;
-  font-size: 2.5rem;
-  text-shadow: 3px 0px 0px #0D0D0A, 5px 0px 0px #FFFF00;
-  letter-spacing: 5px;
-} 
-
-.p-calcs p {
-  background: #FFFF00;
+.p-data { 
+  background: white; 
+  width: 290px; 
   word-break: break-all;
-  height: auto;
-  -webkit-box-decoration-break: clone;
-  min-height: 50px;
-  width: 80%;
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 1.5rem;
-  font-weight: bolder;
-  text-align: center;
+  box-sizing: content-box;
 }
 
+.p-calc {
+  color: black;
+  background: #FFFF00;
+  width: 80%;
+  margin-left: 20px;
+  margin-top: -30px;
+  font-size: 1.5rem;
+  padding-left: 5px;
+}
+.p-user {
+  font-size: 2rem;
+  color: black;  
+  margin-left: 10px;
+  letter-spacing: 5px;
+  text-shadow: 3px 0px 0px #0D0D0A, 8px 0px 0px #FFFF00;
+}
 
 
 
