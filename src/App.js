@@ -37,11 +37,13 @@ function App() {
   const usernameInputRef = useRef(null);
 
   useEffect(() => {
-    calculationsDivRef.current.scrollTop = calculationsDivRef.current.scrollHeight;
     if (calculationsData !== undefined) {
       setCalculations(calculationsData.reverse());
     }
   }, [calculationsData]);
+  useEffect(() => {
+    calculationsDivRef.current.scrollTop = calculationsDivRef.current.scrollHeight;
+  }, [calculations]);
   const computeAnswer = () => {
     let question = inputBoxRef.current.value;
     if (!checkForValidQuestion(question)) {
@@ -120,12 +122,16 @@ function App() {
         <div className="user" ref={userDivRef}>
           <p>{username}</p>
         </div>
-        <div ref={calculationsDivRef} className="p-calcs-parent">
+        <div ref={calculationsDivRef} className="p-calcs">
           {
             calculations && calculations.map((c, cindex) =>
-              <div className="p-calcs" key={cindex}>
-                <h3>{c.username}</h3>
-                <p>{c.calculation}</p>
+              <div className="p-data" key={cindex}>
+                <div className="p-user">
+                  <h3>{c.username}</h3>
+                </div>
+                <div className="p-calc">
+                  <p>{c.calculation}</p>
+                </div>
               </div>
             )}
         </div>
