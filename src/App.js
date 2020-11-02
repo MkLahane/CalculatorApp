@@ -105,8 +105,8 @@ function App() {
   };
   return (
     <div className="App">
-      <div ref={usernameDivBackRef} className="username-background added"></div>
-      <div ref={usernameDivRef} className="username added">
+      <div ref={usernameDivBackRef} className="username-background"></div>
+      <div ref={usernameDivRef} className="username">
         <div className="username-div">
           <input ref={usernameInputRef} placeholder="Enter name..." onChange={clampUsername}>
           </input>
